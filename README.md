@@ -1,36 +1,30 @@
 # abbydev-bot
 
-FIXME: description
+This is a small telegram bot that uses the [morse](https://github.com/Otann/morse) library to communicate with telegram.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Clone this repo
+Then use lein to build the jar file
+    
+    $ git clone https://github.com/savyabbers/abberbot
+    $ lein uberjar
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar abbydev-bot-0.1.0-standalone.jar [args]
+    $ java -jar abbydev-bot-0.1.0-standalone.jar &
 
 ## Options
 
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
+You'll need to set up your TELTOKEN env as your telegram api key
 
 ### Bugs
 
 ...
 
-### Any Other Sections
-### That You Think
-### Might be Useful
-
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020 savyabbers
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
