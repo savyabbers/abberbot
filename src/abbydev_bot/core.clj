@@ -5,16 +5,13 @@
             [clojure.string :as cstr]
             [clojure.core.async :refer [<!!]]
             [abbydev-bot.dicehelp :as dh]
-            [abbydev-bot.catpics :refer [get-cat-pic]])
+            [abbydev-bot.catpics :refer [get-cat-pic cat-help]])
   (:gen-class))
 
 (def token (System/getenv "TELTOKEN"))
-(def help-text (str "/start - start bot!\n"
-                 "/help - show this!\n"
-                 "/cat - meow\n"
-                 "/roll string - roll dice using dice notation,"
-                 "if no notation is given. 2d6 will be used\n"
-                 "/rollhelp - get some example on how to use /roll"))
+(def help-text (str "/help - show this!\n"
+                 cat-help
+                 dh/dice-help))
 
 (h/defhandler handler
   (h/command-fn "start" (fn [{{id :id :as chat} :chat}]
