@@ -3,6 +3,10 @@
 
 (def roll-help "use /roll 2d6 to roll two six sided dice")
 
+(def dice-help (str "/roll string - roll dice using dice notation, "
+                 "if no notation is given. 2d6 will be used\n"
+                 "/rollhelp - get some example on how to use /roll"))
+
 (defn dice-limiter?
   [{count :die-count sides :sides}]
   (if (and (< count 101) (< sides 101))
