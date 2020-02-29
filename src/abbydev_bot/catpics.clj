@@ -3,7 +3,7 @@
             [clojure.data.json :as json]))
 
 (def caturl "https://api.thecatapi.com/v1/images/search?order=Rand")
-(def cathelp "/cat - meow\n")
+(def cat-help "/cat - meow\n")
 
 
 (defn get-cat-pic []
