@@ -35,7 +35,7 @@
         (t/send-photo token id catpic)
         (t/send-text token id "Cat is hiding! (Error:)"))))
 
-  (h/command "dog" {{id :id as chat} :chat}
+  (h/command "dog" {{id :id :as chat} :chat}
     (let [dogpic (get-dog-pic)]
       (if dogpic
         (t/send-photo token id dogpic)
