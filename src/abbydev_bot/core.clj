@@ -57,5 +57,5 @@
     (System/exit 1))
   
   (println "strarting bot...")
-  (<!! (p/start token handler {:timeout 10})))
+  (<!! (p/start token handler {:timeout 400})))
 
