@@ -8,7 +8,9 @@
 
 (defn get-dog-pic []
   (try
-    (:url (first (json/read-str (:body (client/get dogurl)) :key-fn keyword)))
+    (:url (first (json/read-str (:body (client/get (str dogurl
+                                                        "&mine_types=png,jpg")))
+                                :key-fn keyword)))
     (catch Exception e nil)))
 
 (defn get-dog-gif []

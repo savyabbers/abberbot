@@ -8,7 +8,9 @@
 
 (defn get-cat-pic []
   (try
-    (:url (first (json/read-str (:body (client/get caturl)) :key-fn keyword)))
+    (:url (first (json/read-str (:body (client/get (str caturl
+                                                        "&mime_type=png,jpg")))
+                                :key-fn keyword)))
     (catch Exception e nil)))
 
 (defn get-cat-gif []
