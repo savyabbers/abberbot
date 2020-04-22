@@ -5,8 +5,8 @@
             [clojure.string :as cstr]
             [clojure.core.async :refer [<!!]]
             [abbydev-bot.dicehelp :as dh]
-            [abbydev-bot.catpics :refer [get-cat-pic cat-help]]
-            [abbydev-bot.dogpics :refer [get-dog-pic dog-help]])
+            [abbydev-bot.catpics :refer [get-cat-pic get-cat-gif cat-help]]
+            [abbydev-bot.dogpics :refer [get-dog-pic get-dog-gif dog-help]])
   (:gen-class))
 
 (def token (System/getenv "TELTOKEN"))
@@ -35,10 +35,22 @@
         (t/send-photo token id catpic)
         (t/send-text token id "Cat is hiding! (Error:)"))))
 
+  (h/command "catgif" {{id :id :as chat} :chat}
+    (let [catgif (get-cat-gif)]
+      (if catgif
+        (t/send-document token id catgif)
+        (t/send-text token id "Cat is hiding! (Error:)"))))
+
   (h/command "dog" {{id :id :as chat} :chat}
     (let [dogpic (get-dog-pic)]
       (if dogpic
         (t/send-photo token id dogpic)
+        (t/send-text token id "Dog is hiding! (Error:)"))))
+
+  (h/command "doggif" {{id :id :as chat} :chat}
+    (let [doggif (get-dog-gif)]
+      (if doggif
+        (t/send-document token id doggif)
         (t/send-text token id "Dog is hiding! (Error:)"))))
 
   (h/command "rollhelp" {{id :id :as chat} :chat}
