@@ -67,7 +67,9 @@
   (when (cstr/blank? token)
     (println "NO TOKEN IN ENV 'TELTOKEN'")
     (System/exit 1))
-  
-  (println "strarting bot...")
-  (<!! (p/start token handler {:timeout 400})))
+  (loop []
+    (println "strarting bot...")
+    (<!! (p/start token handler {:timeout 400}))
+    (Thread/sleep 30000))
+    (recur)))
 
