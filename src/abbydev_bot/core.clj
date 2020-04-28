@@ -70,6 +70,6 @@
   (loop []
     (println "strarting bot...")
     (<!! (p/start token handler {:timeout 400}))
-    (Thread/sleep 30000))
+    (Thread/sleep 30000)
     (recur)))
 
