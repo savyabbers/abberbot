@@ -71,8 +71,8 @@
     (println "NO TOKEN IN ENV 'TELTOKEN'")
     (System/exit 1))
   (loop [x 10]
-    (when (= times 0) (System/exit 1))
+    (when (= x 0) (System/exit 1))
     (println "strarting bot...")
     (<!! (p/start token handler))
-    (Thread/sleep (min-to-millisecs 15))
+    (Thread/sleep (mins-to-millisecs 15))
     (recur (- x 1))))
