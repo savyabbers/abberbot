@@ -61,15 +61,18 @@
     (when (cstr/includes? (cstr/lower-case msg) "ping")
       (t/send-text token id "pong"))))
 
+(defn mins-to-millisecs [x]
+  (* x 60 1000))
+
 (defn -main
   "start bot"
   [& args]
   (when (cstr/blank? token)
     (println "NO TOKEN IN ENV 'TELTOKEN'")
     (System/exit 1))
-  (loop []
+  (loop [x 10]
+    (when (= times 0) (System/exit 1))
     (println "strarting bot...")
-    (<!! (p/start token handler {:timeout 400}))
-    (Thread/sleep 30000)
-    (recur)))
-
+    (<!! (p/start token handler))
+    (Thread/sleep (min-to-millisecs 15))
+    (recur (- x 1))))
