@@ -16,6 +16,6 @@
 (defn get-cat-gif []
   (try
     (:url (first (json/read-str (:body (client/get (str caturl
-                                                        "&mime_types=gif")))
+                                                        "&mime_types=gif&size=full")))
                                 :key-fn keyword)))
     (catch Exception e nil)))
